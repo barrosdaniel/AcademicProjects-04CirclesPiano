@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/styles.css">
     <script src="/lib/paper-full.min.js" type="text/javascript"></script>
     <script type="text/paperscript" canvas="myCanvas">
+        var circles = [];
         function onKeyDown(event) {
             // Generate Color
             var color = '';
@@ -25,6 +26,14 @@
             // Plot circle on canvas
             var circle = new Path.Circle(point, radius);
             circle.fillColor = color;
+            circles.push(circle);
+        }
+
+        function onFrame(event) {
+            for (var i = 0; i < circles.length; i++) {
+                circles[i].fillColor.hue += 1;
+                circles[i].scale(.95);
+            }
         }
     </script>
 </head>
