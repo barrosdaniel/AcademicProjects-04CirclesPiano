@@ -18,13 +18,11 @@
             var b = Math.floor(Math.random() * rgbMaxValue);
             color = 'rgb(' + r + ', ' + g + ', ' + b + ')';
             // Create ball parameters
-            var ballMaxRadius = 100;
-            var radius = Math.floor(Math.random() * ballMaxRadius);
             var maxPoint = new Point(view.size.width, view.size.height);
             var randomPoint = Point.random();
             var point = maxPoint * randomPoint;
             // Plot circle on canvas
-            var circle = new Path.Circle(point, radius);
+            var circle = new Path.Circle(point, 500);
             circle.fillColor = color;
             circles.push(circle);
         }
