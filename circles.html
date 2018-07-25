@@ -5,11 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Circles Piano</title>
+    <link rel="stylesheet" href="/css/styles.css">
     <script src="/lib/paper-full.min.js" type="text/javascript"></script>
-    <script type="text/paperscript" canvas="myCanvas"></script>
+    <script type="text/paperscript" canvas="myCanvas">
+        function onKeyDown(event) {
+            // Generate Color
+            var color = '';
+            var rgbMaxValue = 255;
+            var r = Math.floor(Math.random() * rgbMaxValue);
+            var g = Math.floor(Math.random() * rgbMaxValue);
+            var b = Math.floor(Math.random() * rgbMaxValue);
+            color = 'rgb(' + r + ', ' + g + ', ' + b + ')';
+            // Create ball parameters
+            var ballMaxRadius = 100;
+            var radius = Math.floor(Math.random() * ballMaxRadius);
+            var maxPoint = new Point(view.size.width, view.size.height);
+            var randomPoint = Point.random();
+            var point = maxPoint * randomPoint;
+            // Plot circle on canvas
+            var circle = new Path.Circle(point, radius);
+            circle.fillColor = color;
+        }
+    </script>
 </head>
 <body>
-    <h1>Circles Piano</h1>
     <canvas id="myCanvas" resize></canvas>
 </body>
 </html>
+
+var ballMaxRadius = 100;
+var ballMaxX = 800;
+var ballMaxY = 600;
+var x = Math.floor(Math.random() * ballMaxX);
+var y = Math.floor(Math.random() * ballMaxY);
+var radius = Math.floor(Math.random() * ballMaxRadius);
+var circle = new Path.Circle(new Point(x, y), radius);
+circle.fillColor = '#e7e7e7';
+var ballMaxRadius = 100;
